@@ -1,4 +1,12 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <span>{{title}}</span>
+  <div class="nav-buttons">
+    <button mat-button>Home</button>
+    <button mat-button>New Article</button>
+  </div>
+  <div class="auth-buttons">
+    <button mat-button>Log In</button>
+    <button mat-button>Log Out</button>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
