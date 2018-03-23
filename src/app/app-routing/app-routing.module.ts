@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { NewArticleComponent} from '../new-article/new-article.component';
+import { ArticleComponent } from '../article/article.component';
 
 const routes: Routes = [
     {
@@ -11,6 +12,10 @@ const routes: Routes = [
     {
         path: 'new',
         component: NewArticleComponent
+    },
+    {
+        path: 'article/:id',
+        component: ArticleComponent
     },
     {
         path: '**',

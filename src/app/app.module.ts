@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialComponentsModule } from './material-components/material-components.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { UserComponent } from './user/user.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+
+import { ArticleService } from './services/article.service';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { NewArticleComponent } from './new-article/new-article.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     MaterialComponentsModule,
     AppRoutingModule,
     MarkdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    ArticleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

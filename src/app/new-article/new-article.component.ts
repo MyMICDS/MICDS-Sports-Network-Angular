@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../services/article.service';
+import { Article } from '../article';
 
 @Component({
   selector: 'app-new-article',
@@ -6,12 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-article.component.scss']
 })
 export class NewArticleComponent implements OnInit {
-  text = '';
+  bodyText = '';
+  titleText = '';
 
-  constructor() { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
 
+  }
+
+  submit() {
+    const article = new Article({
+      author: 'jcai',
+      dateCreated: new Date().toString(),
+      title: this.titleText,
+      content: this.bodyText,
+      tags: ['test']
+    });
+    console.log(article);
+    this.articleService.post(article);
   }
 
 }

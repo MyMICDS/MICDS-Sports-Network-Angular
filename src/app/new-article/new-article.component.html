@@ -1,2 +1,4 @@
-<markdown>{{ text }}</markdown>
-<textarea [(ngModel)]="text"></textarea>
+<div [innerHTML]="bodyText | markdown"></div>
+<input [(ngModel)]="titleText">
+<textarea [(ngModel)]="bodyText"></textarea>
+<button (click)="submit()">Submit</button>
