@@ -13,7 +13,7 @@ import { ArticleService } from '../services/article.service';
 })
 export class ArticleComponent implements OnInit {
 
-  article$: Observable<Article>
+  article$: Observable<Article>;
 
   constructor() { }
 

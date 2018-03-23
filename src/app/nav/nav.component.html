@@ -1,3 +1,11 @@
-<p>
-  nav works!
-</p>
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <div class="nav-buttons">
+    <button mat-button routerLink="home">Home</button>
+    <button mat-button routerLink="new">New Article</button>
+  </div>
+  <div class="auth-buttons">
+    <button mat-button>Log In</button>
+    <button mat-button>Log Out</button>
+  </div>
+</mat-toolbar>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  title = 'MICDS Sports Network';
+
   constructor() { }
 
   ngOnInit() {

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-article.component.scss']
 })
 export class NewArticleComponent implements OnInit {
+  text = '';
 
   constructor() { }
 
