@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as marked from 'marked';
 
 @Component({
   selector: 'app-new-article',

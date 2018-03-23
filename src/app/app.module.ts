@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterialComponentsModule } from './material-components/material-components.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
