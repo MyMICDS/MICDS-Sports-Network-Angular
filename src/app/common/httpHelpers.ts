@@ -18,4 +18,5 @@ export function handleError(o: Observable<ServerResponse>): Observable<ServerRes
 
 interface ServerResponse {
   error?: string;
+  [key: string]: any;
 }

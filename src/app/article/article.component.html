@@ -1,1 +1,4 @@
-<markdown *ngIf="article">{{ article }}</markdown>
+<div *ngIf="article">
+  {{article | json}}
+  <markdown>{{ article.content }}</markdown>
+</div>

@@ -22,7 +22,10 @@ export class ArticleComponent implements OnInit {
       .switchMap((params: ParamMap) => {
         return this.articleService.getById(params.get('id'));
       });
-    this.article$.subscribe(article => this.article = article);
+    this.article$.subscribe(
+      article => this.article = article,
+      error => console.log(error)
+    );
   }
 
 }
