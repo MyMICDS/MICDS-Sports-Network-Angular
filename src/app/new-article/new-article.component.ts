@@ -26,7 +26,10 @@ export class NewArticleComponent implements OnInit {
       tags: ['test']
     });
     console.log(article);
-    this.articleService.post(article);
+    this.articleService.post(article).subscribe(
+      data => console.log('success submit new article'),
+      error => console.log(error)
+    );
   }
 
 }

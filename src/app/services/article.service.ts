@@ -11,11 +11,12 @@ export class ArticleService {
   constructor(private http: HttpClient) { }
 
   post(article: Article) {
-    return this.http.post(environment.backendUrl + '/post', article, httpOptions);
+    return this.http.post(environment.backendUrl + '/new', article, httpOptions);
   }
 
   getById(id: string): Observable<Article> {
     return this.http.get(environment.backendUrl + '/get/' + id, httpOptions)
+      .pipe()
       .map((data: ArticleOptions) => new Article(data));
   }
 
