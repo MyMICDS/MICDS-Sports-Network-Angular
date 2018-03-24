@@ -11,7 +11,8 @@ export class ArticleService {
   constructor(private http: HttpClient) { }
 
   post(article: Article) {
-    return this.http.post(environment.backendUrl + '/articles', article, httpOptions);
+    return this.http.post(environment.backendUrl + '/articles', article, httpOptions)
+      .pipe(handleError);
   }
 
   getById(id: string): Observable<Article> {
@@ -22,6 +23,7 @@ export class ArticleService {
 
   getList(): Observable<ArticleListOptions[]> {
     return this.http.get(environment.backendUrl + '/articles', httpOptions)
+      .pipe(handleError)
       .map((data: ArticleListOptions[]) => data);
   }
 

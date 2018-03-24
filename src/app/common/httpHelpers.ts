@@ -7,16 +7,18 @@ export const httpOptions = {
   })
 };
 
-export function handleError(o: Observable<ServerResponse>): Observable<ServerResponse> {
+export function handleError(o: Observable<ServerResponse>): Observable<any> {
   return o.map(data => {
     if (data.error) {
       throw data.error;
     }
     return data;
-  });
+  })
+  .map(res => res.data);
 }
 
 interface ServerResponse {
   error?: string;
+  data: any;
   [key: string]: any;
 }
