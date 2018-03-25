@@ -10,14 +10,16 @@ export class AuthService {
   MyMICDS: MyMICDS;
   user$: BehaviorSubject<User>;
 
-  constructor(private jwtHelper: JwtHelperService) {
+  jwtHelper = new JwtHelperService();
+
+  constructor() {
     this.user$ = new BehaviorSubject(null);
 
     const that = this;
     const options: Partial<MyMICDSOptions> = {
       baseURL: 'http://localhost:1420',
       jwtSetter(jwt: string, remember: boolean) {
-        const parsed: JWT = jwtHelper.decodeToken(jwt);
+        const parsed: JWT = that.jwtHelper.decodeToken(jwt);
         that.user$.next(new User({ name: parsed.user, jwt: parsed }));
         if (remember) {
             localStorage.setItem('jwt', jwt);

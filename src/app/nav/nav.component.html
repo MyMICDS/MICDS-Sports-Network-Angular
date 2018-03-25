@@ -6,7 +6,7 @@
   </div>
   <div class="auth-buttons">
     <button *ngIf="!user" mat-button>Log In</button>
-    <button *ngIF="user" mat-button [matMenuTriggerFor]="userMenu">{{ user.name }}</button>
+    <button *ngIf="user" mat-button [matMenuTriggerFor]="userMenu">{{ user.name }}</button>
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item>Profile</button>
       <button mat-menu-item>Log Out</button>

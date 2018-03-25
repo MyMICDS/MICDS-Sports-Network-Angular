@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MarkdownModule } from 'ngx-markdown';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 
 import { ArticleService } from './services/article.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,10 +34,11 @@ import { ArticleService } from './services/article.service';
     MaterialComponentsModule,
     AppRoutingModule,
     MarkdownModule.forRoot(),
-    JwtModule
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    AuthService,
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })
