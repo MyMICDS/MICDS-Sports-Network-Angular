@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.auth$.subscribe(
+    this.authService.user$.subscribe(
       user => {
         this.currentUser = user;
       }

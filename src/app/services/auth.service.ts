@@ -8,15 +8,16 @@ import { User } from '../user';
 export class AuthService {
 
   MyMICDS: MyMICDS;
-  auth$: BehaviorSubject<User>;
+  user$: BehaviorSubject<User>;
 
   constructor(private jwtHelper: JwtHelperService) {
-    this.auth$ = new BehaviorSubject(null);
+    this.user$ = new BehaviorSubject(null);
+
     const that = this;
-    const options: MyMICDSOptions = {
+    const options: Partial<MyMICDSOptions> = {
       jwtSetter(jwt: string, remember: boolean) {
         const parsed: JWT = jwtHelper.decodeToken(jwt);
-        that.auth$.next(new User({ name: parsed.user, jwt: parsed }));
+        that.user$.next(new User({ name: parsed.user, jwt: parsed }));
         if (remember) {
             localStorage.setItem('jwt', jwt);
         } else {
@@ -24,12 +25,14 @@ export class AuthService {
         }
       }
     };
+
     this.MyMICDS = new MyMICDS();
   }
 
   login(username: string, password: string, remember: boolean) {
     return this.MyMICDS.auth.login({ user: username, password })
       .map(res => {
+        // use user service instead
         return new User({ name: res.jwt.user, jwt: res.jwt });
       });
   }

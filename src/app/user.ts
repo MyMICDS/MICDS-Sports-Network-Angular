@@ -14,4 +14,5 @@ export class User implements UserOptions {
 export interface UserOptions {
   name: string;
   jwt?: JWT;
+  // _id: string;
 }
