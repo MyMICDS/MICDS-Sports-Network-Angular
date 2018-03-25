@@ -15,6 +15,7 @@ export class AuthService {
 
     const that = this;
     const options: Partial<MyMICDSOptions> = {
+      baseURL: 'http://localhost:1420',
       jwtSetter(jwt: string, remember: boolean) {
         const parsed: JWT = jwtHelper.decodeToken(jwt);
         that.user$.next(new User({ name: parsed.user, jwt: parsed }));
@@ -32,13 +33,14 @@ export class AuthService {
   login(username: string, password: string, remember: boolean) {
     return this.MyMICDS.auth.login({ user: username, password })
       .map(res => {
+        const parsed: JWT = this.jwtHelper.decodeToken(res.jwt);
         // use user service instead
-        return new User({ name: res.jwt.user, jwt: res.jwt });
+        return new User({ name: parsed.user, jwt: parsed });
       });
   }
 
   logout(username: string) {
-    return this.MyMICDS.auth.logout({ user: username });
+    return this.MyMICDS.auth.logout();
   }
 }
 
