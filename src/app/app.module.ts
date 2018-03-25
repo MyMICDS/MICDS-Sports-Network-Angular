@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialComponentsModule } from './material-components/material-components.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -31,7 +32,8 @@ import { ArticleService } from './services/article.service';
     HttpClientModule,
     MaterialComponentsModule,
     AppRoutingModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    JwtModule
   ],
   providers: [
     ArticleService
