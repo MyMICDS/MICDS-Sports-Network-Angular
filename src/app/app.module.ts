@@ -14,10 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { UserComponent } from './user/user.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { FeedComponent } from './feed/feed.component';
+import { FeedArticleComponent } from './feed/feed-article/feed-article.component';
+import { FeedGameComponent } from './feed/feed-game/feed-game.component';
 
 import { ArticleService } from './services/article.service';
 import { AuthService } from './services/auth.service';
-import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
 	declarations: [
@@ -28,6 +30,8 @@ import { FeedComponent } from './feed/feed.component';
 		UserComponent,
 		NewArticleComponent,
 		FeedComponent,
+		FeedArticleComponent,
+		FeedGameComponent,
 	],
 	imports: [
 		BrowserModule,
