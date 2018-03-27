@@ -5,8 +5,8 @@
     <button mat-button routerLink="new">New Article</button>
   </div>
   <div class="auth-buttons">
-    <button *ngIf="!user" mat-button>Log In</button>
-    <button *ngIf="user" mat-button [matMenuTriggerFor]="userMenu">{{ user.name }}</button>
+    <button *ngIf="!currentUser" mat-button>Log In</button>
+    <button *ngIf="currentUser" mat-button [matMenuTriggerFor]="userMenu">{{ curretUser.name }}</button>
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item>Profile</button>
       <button mat-menu-item>Log Out</button>
