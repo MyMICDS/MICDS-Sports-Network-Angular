@@ -4,10 +4,10 @@ import { UserOptions } from '../user';
 @Injectable()
 export class UserService {
 
-  constructor() { }
+	constructor() { }
 
-  getUser(options: Partial<UserOptions>) {
+	getUser(options: Partial<UserOptions>) {
 
-  }
+	}
 
 }

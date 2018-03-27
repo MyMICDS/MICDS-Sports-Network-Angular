@@ -3,33 +3,33 @@ import { AuthService } from '../services/auth.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+	selector: 'app-nav',
+	templateUrl: './nav.component.html',
+	styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
 
-  title = 'MICDS Sports Network';
-  currentUser: User;
+	title = 'MICDS Sports Network';
+	currentUser: User;
 
-  username = '';
-  password = '';
-  remember = false;
+	username = '';
+	password = '';
+	remember = false;
 
-  constructor(private authService: AuthService) { }
+	constructor(private authService: AuthService) { }
 
-  ngOnInit() {
-    this.authService.user$.subscribe(
-      user => {
-        this.currentUser = user;
-      }
-    );
-  }
+	ngOnInit() {
+		this.authService.user$.subscribe(
+			user => {
+				this.currentUser = user;
+			}
+		);
+	}
 
-  login() {
-    // this.authService.login(this.username, this.password, this.remember).subscribe(
+	login() {
+		// this.authService.login(this.username, this.password, this.remember).subscribe(
 
-    // );
-  }
+		// );
+	}
 
 }

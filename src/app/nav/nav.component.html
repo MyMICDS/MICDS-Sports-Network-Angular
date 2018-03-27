@@ -1,15 +1,15 @@
 <mat-toolbar color="primary">
-  <span>{{title}}</span>
-  <div class="nav-buttons">
-    <button mat-button routerLink="home">Home</button>
-    <button mat-button routerLink="new">New Article</button>
-  </div>
-  <div class="auth-buttons">
-    <button *ngIf="!currentUser" mat-button>Log In</button>
-    <button *ngIf="currentUser" mat-button [matMenuTriggerFor]="userMenu">{{ curretUser.name }}</button>
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item>Profile</button>
-      <button mat-menu-item>Log Out</button>
-    </mat-menu>
-  </div>
+	<span>{{title}}</span>
+	<div class="nav-buttons">
+		<button mat-button routerLink="home">Home</button>
+		<button mat-button routerLink="new">New Article</button>
+	</div>
+	<div class="auth-buttons">
+		<button *ngIf="!currentUser" mat-button>Log In</button>
+		<button *ngIf="currentUser" mat-button [matMenuTriggerFor]="userMenu">{{ curretUser.name }}</button>
+		<mat-menu #userMenu="matMenu">
+			<button mat-menu-item>Profile</button>
+			<button mat-menu-item>Log Out</button>
+		</mat-menu>
+	</div>
 </mat-toolbar>

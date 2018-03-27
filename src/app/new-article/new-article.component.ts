@@ -3,33 +3,33 @@ import { ArticleService } from '../services/article.service';
 import { Article } from '../article';
 
 @Component({
-  selector: 'app-new-article',
-  templateUrl: './new-article.component.html',
-  styleUrls: ['./new-article.component.scss']
+	selector: 'app-new-article',
+	templateUrl: './new-article.component.html',
+	styleUrls: ['./new-article.component.scss']
 })
 export class NewArticleComponent implements OnInit {
-  bodyText = '';
-  titleText = '';
+	bodyText = '';
+	titleText = '';
 
-  constructor(private articleService: ArticleService) { }
+	constructor(private articleService: ArticleService) { }
 
-  ngOnInit() {
+	ngOnInit() {
 
-  }
+	}
 
-  submit() {
-    const article = new Article({
-      author: 'jcai',
-      dateCreated: new Date().toString(),
-      title: this.titleText,
-      content: this.bodyText,
-      tags: ['test']
-    });
-    console.log(article);
-    this.articleService.post(article).subscribe(
-      data => console.log('success submit new article'),
-      error => console.log(error)
-    );
-  }
+	submit() {
+		const article = new Article({
+			author: 'jcai',
+			dateCreated: new Date().toString(),
+			title: this.titleText,
+			content: this.bodyText,
+			tags: ['test']
+		});
+		console.log(article);
+		this.articleService.post(article).subscribe(
+			data => console.log('success submit new article'),
+			error => console.log(error)
+		);
+	}
 
 }

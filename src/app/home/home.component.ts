@@ -4,19 +4,19 @@ import { ArticleListOptions } from '../article';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+	selector: 'app-home',
+	templateUrl: './home.component.html',
+	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  articleList$: Observable<ArticleListOptions[]>;
-  articleList: ArticleListOptions[];
+	articleList$: Observable<ArticleListOptions[]>;
+	articleList: ArticleListOptions[];
 
-  constructor(private articleService: ArticleService) { }
+	constructor(private articleService: ArticleService) { }
 
-  ngOnInit() {
-    this.articleList$ = this.articleService.getList();
-    this.articleList$.subscribe(list => this.articleList = list);
-  }
+	ngOnInit() {
+		this.articleList$ = this.articleService.getList();
+		this.articleList$.subscribe(list => this.articleList = list);
+	}
 
 }
