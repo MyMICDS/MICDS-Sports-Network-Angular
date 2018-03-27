@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MyMICDS, MyMICDSOptions } from '@mymicds/sdk';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../user';
 
@@ -8,28 +8,22 @@ import { User } from '../user';
 export class AuthService {
 
   MyMICDS: MyMICDS;
-  user$: BehaviorSubject<User>;
+  user$: Observable<User>;
 
   jwtHelper = new JwtHelperService();
 
   constructor() {
-    this.user$ = new BehaviorSubject(null);
-
     const that = this;
     const options: Partial<MyMICDSOptions> = {
       baseURL: 'http://localhost:1420',
-      jwtSetter(jwt: string, remember: boolean) {
-        const parsed: JWT = that.jwtHelper.decodeToken(jwt);
-        that.user$.next(new User({ name: parsed.user, jwt: parsed }));
-        if (remember) {
-            localStorage.setItem('jwt', jwt);
-        } else {
-            sessionStorage.setItem('jwt', jwt);
-        }
-      }
     };
 
     this.MyMICDS = new MyMICDS();
+
+    this.user$ = this.MyMICDS.auth.auth$.map(snapshot => {
+      return snapshot.jwt ?
+        new User({ name: snapshot.jwt.user, jwt: snapshot.jwt }) : undefined;
+    });
   }
 
   login(username: string, password: string, remember: boolean) {
