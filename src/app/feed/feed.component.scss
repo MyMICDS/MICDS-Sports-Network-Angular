@@ -1,9 +1,11 @@
+.upcoming,
 .feed {
 	max-width: 50%;
 	margin: 0 auto;
 	padding: 2rem;
 }
 
+.upcoming-items > *,
 .feed-items > * {
 	display: block;
 	margin-bottom: 2rem;

@@ -17,6 +17,7 @@ import { NewArticleComponent } from './new-article/new-article.component';
 import { FeedComponent } from './feed/feed.component';
 import { FeedArticleComponent } from './feed/feed-article/feed-article.component';
 import { FeedGameComponent } from './feed/feed-game/feed-game.component';
+import { FeedUpcomingComponent } from './feed/feed-upcoming/feed-upcoming.component';
 
 import { ArticleService } from './services/article.service';
 import { AuthService } from './services/auth.service';
@@ -32,6 +33,7 @@ import { AuthService } from './services/auth.service';
 		FeedComponent,
 		FeedArticleComponent,
 		FeedGameComponent,
+		FeedUpcomingComponent
 	],
 	imports: [
 		BrowserModule,
@@ -39,7 +41,7 @@ import { AuthService } from './services/auth.service';
 		HttpClientModule,
 		MaterialComponentsModule,
 		AppRoutingModule,
-		MarkdownModule.forRoot(),
+		MarkdownModule.forRoot()
 	],
 	providers: [
 		ArticleService,
